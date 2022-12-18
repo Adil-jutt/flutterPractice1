@@ -7,7 +7,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({ Key? key }) : super(key: key);
-
+  
+  
+ TextEditingController email = TextEditingController();
+    TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +18,45 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(),
       body: 
       Column(children: [
+        
+
+    login() {
+      if (email.text == "adil123@gmail.com" && password.text == "12345") {
+        print("Login Successful");
+      } else {
+       
+        print("Failed");
+      }
+     
+    }
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+        body: Column(
+          children: [
+            TextField(
+              controller: email,
+              obscureText: false,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Email",
+              ),
+            ),
+            SizedBox(height: 20,),
+            TextField(
+              controller: password,
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Password",
+              ),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  login();
+                },
+                child: Text("Login")),
           Container(
             height: 100,
             width: 100,
