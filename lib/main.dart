@@ -5,31 +5,27 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
-  
-  
- TextEditingController email = TextEditingController();
-    TextEditingController password = TextEditingController();
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+
+class _MyAppState extends State<MyApp> {
+  TextEditingController email = TextEditingController();
+TextEditingController password = TextEditingController();
+login() {
+  if (email.text == "adil123@gmail.com" && password.text == "12345") {
+    print("Login Successful");
+  } else {
+    print("Failed");
+  }
+}
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(),
-      body: 
-      Column(children: [
-        
-
-    login() {
-      if (email.text == "adil123@gmail.com" && password.text == "12345") {
-        print("Login Successful");
-      } else {
-       
-        print("Failed");
-      }
-     
-    }
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
@@ -43,7 +39,9 @@ class MyApp extends StatelessWidget {
                 labelText: "Email",
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             TextField(
               controller: password,
               obscureText: true,
@@ -57,6 +55,30 @@ class MyApp extends StatelessWidget {
                   login();
                 },
                 child: Text("Login")),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({ Key? key }) : super(key: key);
+  
+  
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+      body: 
+      Column(children: [
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+        body: Column(
+          children: [
           Container(
             height: 100,
             width: 100,
